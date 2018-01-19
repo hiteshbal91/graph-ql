@@ -1,0 +1,28 @@
+{
+    "name": "graph-ql",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/server.js",
+    "types": "src/server.ts",
+    "scripts": {
+        "build": "./node_modules/.bin/tsc",
+        "start": "npm run build && node dist/server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/node": "^9.3.0",
+        "basic-auth": "^2.0.0",
+        "express": "^4.16.2",
+        "express-graphql": "^0.6.11",
+        "graphql": "^0.12.3",
+        "lodash": "^4.17.4",
+        "mongodb": "^3.0.1"
+    },
+    "devDependencies": {
+        "ts-node": "^4.1.0",
+        "typescript": "^2.6.2"
+    }
+}
