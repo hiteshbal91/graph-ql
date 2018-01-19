@@ -1,4 +1,4 @@
-import { MongoClient, Logger as DBLogger } from 'mongodb';
+import { MongoClient, Logger as DBLogger, ObjectID as ObjectIDInstance } from 'mongodb';
 import { isUndefined, isEmpty, merge, cloneDeep } from 'lodash';
 
 import { Users as UsersModel } from "./users";
@@ -43,5 +43,7 @@ export class Model {
         return this.models[modelName];
     }
 }
+
+export const ObjectID = ObjectIDInstance;
 
 export default new Model();

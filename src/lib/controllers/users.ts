@@ -20,10 +20,13 @@ Router
     })
     .post((req, res, next) => {
         const UsersModel = Model.getModel('users');
+        const Body = pick(req.body, ["first_name", "last_name", "email", "posts"]);
 
-        UsersModel.insert(pick(req.body, ["first_name", "last_name", "email", "posts"]))
+        // console.log("Body :", Body);
+
+        UsersModel.insert(Body)
             .then((user) => {
-                console.log("req.body : ", req.body)
+                // console.log("req.body : ", req.body)
                 return res.json({ user });
             })
             .catch(next);
