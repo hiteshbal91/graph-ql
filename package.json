@@ -1,0 +1,52 @@
+{
+    "name": "typescript-api",
+    "version": "1.0.0",
+    "description": "Typescript based API structure as base.",
+    "main": "dist/index.js",
+    "scripts": {
+        "watch-cli": "./node_modules/.bin/nodemon -e ts -w ./src -x npm run dev",
+        "watch": "./node_modules/.bin/nodemon",
+        "serve": "./node_modules/.bin/ts-node src/index.ts",
+        "build": "./node_modules/.bin/tsc",
+        "dev": "npm run build && node dist/index.js",
+        "test": "nodemon",
+        "doc": "./node_modules/.bin/typedoc --name 'SuperAdmin API' --tsconfig tsconfig.json --ignoreCompilerErrors --mode modules --out documentation src/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hiteshbal91/api-demo.git"
+    },
+    "keywords": [
+        "typescript",
+        "api",
+        "ts-api"
+    ],
+    "author": "hiteshbal91",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/hiteshbal91/api-demo/issues"
+    },
+    "homepage": "https://github.com/hiteshbal91/api-demo#readme",
+    "dependencies": {
+        "express": "4.16.3",
+        "express-graphql": "^0.6.12",
+        "graphql": "^14.0.0",
+        "lodash": "^4.17.10",
+        "merge-graphql-schemas": "^1.5.3",
+        "mongoose": "5.2.12",
+        "on-headers": "^1.0.1"
+    },
+    "devDependencies": {
+        "@types/debug": "0.0.30",
+        "@types/express": "^4.16.0",
+        "@types/express-graphql": "^0.6.1",
+        "@types/graphql": "^0.13.4",
+        "@types/lodash": "^4.14.116",
+        "@types/mongoose": "^5.2.9",
+        "@types/on-headers": "^1.0.0",
+        "nodemon": "^1.18.4",
+        "ts-node": "^7.0.1",
+        "typedoc": "^0.12.0",
+        "typescript": "^3.0.3"
+    }
+}
