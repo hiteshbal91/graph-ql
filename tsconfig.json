@@ -14,5 +14,9 @@
     },
     "include": [
         "src/**/*.ts"
+    ],
+    "exclude": [
+        "src/lib/modules/",
+        "src/lib/middlewares/",
     ]
 }

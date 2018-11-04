@@ -1,10 +1,10 @@
 // import inbuilt modules
 import * as Debug from 'debug';
 // import custom modules
-import GenericModel from './model';
+import GenericModel from './../../models';
 
-const ModelName = "Organizations";
-const Schema = {
+export const ModelName = "Organizations";
+export const Schema = {
     name: {
         type: String,
         required: true,
@@ -55,6 +55,9 @@ class Organizations extends GenericModel {
         // Organizations.addPreHooks();
     }
 }
-export default (): GenericModel => {
+
+const OrgModel = (): GenericModel => {
     return new Organizations();
 };
+
+export default OrgModel();

@@ -2,11 +2,11 @@
 import * as Debug from 'debug';
 import { Schema as ModelSchema } from 'mongoose';
 // import custom modules
-import GenericModel from './model';
-import { UIDRegExp } from './../../framework/constants';
+import GenericModel from './../../models';
+import { UIDRegExp } from './../../../framework/constants';
 
-const ModelName = "Plans";
-const Schema = {
+export const ModelName = "Plans";
+export const Schema = {
     plan_id: {
         type: String,
         lowercase: true,
@@ -46,6 +46,9 @@ class Plans extends GenericModel {
         this.setPreSaveHooks([assignPlan]);
     }
 }
-export default (): GenericModel => {
+
+const PlanModel = (): GenericModel => {
     return new Plans();
 };
+
+export default PlanModel();

@@ -1,10 +1,10 @@
 // import inbuilt modules
 import * as Debug from 'debug';
 // import custom modules
-import GenericModel from './model';
+import GenericModel from './../../models';
 
-const ModelName = "Users";
-const Schema = {
+export const ModelName = "Users";
+export const Schema = {
     email: {
         type: String,
         required: true,
@@ -83,6 +83,9 @@ class Users extends GenericModel {
         super(ModelName, Schema);
     }
 }
-export default (): GenericModel => {
+
+const UserModel = (): GenericModel => {
     return new Users();
 };
+
+export default UserModel();

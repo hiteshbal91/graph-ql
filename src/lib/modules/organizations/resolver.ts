@@ -1,34 +1,28 @@
 
 // import inbuilt modules
-import { Types } from 'mongoose';
 // import custom modules
-import { Organizations, Plans } from './../../models/index';
+import Model from './model';
 
 export default {
-    orgPlans: async (args, context, info) => {
-        console.log("parent object : ", args);
-        return await Plans.findOne({}, {});
+    Query: {
+        organization: async (root, args, context, info) => {
+            // definition of organizations resolver
+            const Orgs = await Model.findOne({ uid: args.uid }, {});
+            return Promise.resolve(Orgs);
+        },
+        organizations: async (root, args, context, info) => {
+            // definition of organizations resolver
+            const Orgs = await Model.find({}, {}, { ...args });
+            // console.log("Query organizations: ", Orgs, args);
+            return Orgs;
+        },
     },
-    organization: async (uid: String = "") => {
-        console.log("Query : ", uid, arguments[0]);
-        // definition of organizations resolver
-        const Orgs = await Organizations.findOne({}, {});
-        return Promise.resolve(Orgs);
-    },
-    organizations: async () => {
-        console.log("Query : ", arguments[0]);
-        // definition of organizations resolver
-        const Orgs = await Organizations.find({}, {});
-        return Promise.resolve(Orgs);
-    },
-    addOrganization: async ({ input }) => {
-        // definition of addOrganization resolver
-        const Org = await Organizations.insertOne({ ...input });
-        return Org;
-    },
-    updateOrganization: async (uid, { input }) => {
-        // definition of addOrganization resolver
-        const Org = await Organizations.findOneAndUpdate({ "_id": Types.ObjectId(uid) }, { ...input }, {});
-        return Org;
+    Mutation: {
+        addOrganization: async (parent, dataInput, context, info) => {
+            // definition of organizations resolver
+            const Org = await Model.insertOne(dataInput.input);
+            // console.log("Query organizations: ", Orgs, args);
+            return Org;
+        }
     }
 }

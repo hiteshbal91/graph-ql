@@ -1,7 +1,7 @@
 // import inbuilt modules
 import * as Debug from 'debug';
 // import custom modules
-import GenericModel from './model';
+import GenericModel from './';
 
 // model name for the mongoose object
 const ModelName = "UserSession";
@@ -14,6 +14,9 @@ class UserSessions extends GenericModel {
         super(ModelName, {}, {}, "user-sessions");
     }
 }
-export default (): GenericModel => {
+
+const UserSessionModel = (): GenericModel => {
     return new UserSessions();
 };
+
+export default UserSessionModel();

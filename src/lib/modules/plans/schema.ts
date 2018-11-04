@@ -5,9 +5,13 @@ export default `
         description: String
     }
 
-    type Query {
-        plans: [Plan!]
-        plan(uid: String): Plan
+    input PlanQueryInput {
+        name: String!        
+    }
+
+    extend type Query {
+        plans(query: PlanQueryInput, limit: Int! = 10, skip: Int! = 0): [Plan!]
+        plan(uid: String!): Plan
     }
 
     input PlanInput {
@@ -15,15 +19,9 @@ export default `
         description: String
     }
 
-    type Mutation {
-        createPlan(input: PlanInput): Plan
-    }
-
-    type Mutation {
-        updatePlan(plan_id: ID!, input: PlanInput): Plan
-    }
-
-    type Mutation {
-        deletePlan(plan_id: ID!): Plan
-    }
+#    type Mutation {
+#        createPlan(input: PlanInput): Plan
+#        updatePlan(plan_id: ID!, input: PlanInput): Plan
+#        deletePlan(plan_id: ID!): Plan
+#    }
 `;
